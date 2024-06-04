@@ -16,9 +16,9 @@
 	
 		
 	// Préparer les requêtes SQL
-	$requete_batiment = "INSERT IGNORE INTO `sae23`.`Batiment` (`id_batiment`, `nom`, `login`, `mdp`) VALUES ('$batiment', '$nom_batiment', '$login', '$mdp')";
-	$requete_salle = "INSERT IGNORE INTO `sae23`.`Salle` (`nom_salle`, `type_salle`, `capacite`, `id_batiment`) VALUES ('$salle', '$type_salle', '$capacite_salle', '$batiment')";
-	$requete_capteur = "INSERT IGNORE INTO `sae23`.`Capteur` (`nom_capteur`, `type_capteur`, `unite`, `nom_salle`) VALUES ('$capteur', 'AM107', 'lux', '$salle')";
+	$requete_batiment = "REPLACE INTO `sae23`.`Batiment` (`id_batiment`, `nom`, `login`, `mdp`) VALUES ('$batiment', '$nom_batiment', '$login', '$mdp')";
+	$requete_salle = "REPLACE INTO `sae23`.`Salle` (`nom_salle`, `type_salle`, `capacite`, `id_batiment`) VALUES ('$salle', '$type_salle', '$capacite_salle', '$batiment')";
+	$requete_capteur = "REPLACE INTO `sae23`.`Capteur` (`nom_capteur`, `type_capteur`, `unite`, `nom_salle`) VALUES ('$capteur', 'AM107', 'lux', '$salle')";
 	
 	// Exécuter les requêtes SQL
 	if (mysqli_query($id_bd, $requete_batiment)) {
