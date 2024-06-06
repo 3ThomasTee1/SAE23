@@ -33,6 +33,45 @@ div{
 	border-radius: 50%;
 }
 
+/* Styles pour centrer les formulaires 'batiment'*/
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Ajustez la hauteur selon vos besoins */
+}
+.form-container form {
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 500px; /* Ajustez la largeur selon vos besoins */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.form-container form h2 {
+    text-align: center;
+}
+.form-container form label,
+.form-container form select,
+.form-container form input.bouton {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+}
+.form-container form input.bouton {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.form-container form input.bouton:hover {
+    background-color: #555;
+}
+  
 /* Style qui s'applique au tableau présent dans la page aspects technique */
 
 table{
@@ -214,6 +253,78 @@ footer ul li{
   width:25%;
   list-style-type: none;
 }
+
+
+
+
+/*****************Pour la page administration style formulaire***********************************/
+
+
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 60px; /* To avoid overlap with fixed header */
+    padding-bottom: 60px; /* To avoid overlap with fixed footer */
+    box-sizing: border-box;
+}
+
+
+
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px 0;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background: #2f3235;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+}
+
+
+/****************************************************/
+
+
+
+
+
+
+
 
 /* Style qui s'adapte en fonction de la type de média utilisé. (téléphone) */
 
