@@ -1,13 +1,18 @@
+<?php
+	// Démarrage de la session
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Accueil</title>
+  <title>Mesures</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
   <meta name="author" content="Thomas Tresgots">
-  <meta name="description" content="SAE 23 - Accueil">
-  <meta name="keywords" content="Accueil">
-  <link rel="stylesheet" type="text/css" href="../Styles/style_adaptatif.css" media="screen">
+  <meta name="description" content="SAE 23 - Mesures">
+  <meta name="keywords" content="Mesures">
+  <link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen">
   <!-- Ce lien me permet de pouvoir utiliser des icônes, très utiles pour habiller le site. Ces icônes sont symbolisées pour la balise <i> !-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"> 
 </head>
@@ -16,21 +21,32 @@
 	<nav>
 		<ul class="Liens">
 			<li><a href="index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
-			<li><a href="Admin/login_form.php"> Administration</a></li>
-			<li><a href="Gestionnaire/login_form.php"> Gestion</a></li>
+			<li><a href="Administration.html"> Administration</a></li>
+			<li><a href="Gestion.html"> Gestion</a></li>
 			<li><a href="Consultation.html"> Consultation</a></li>
 			<li><a href="Gestion_projet.html"> Gestion_projet</a></li>
 		</ul>
 	</nav>
-	<!-- Désolé d'avoir utilisé un div, c'est le seul sur mon site web. C'était pour me permettre de mieux déplacer l'image.!-->
-	<!--<div><img id="Image_accueil" src="Images/Moi.jpg" alt="Image d'accueil" title="Image d'accueil"></div>-->
-	<!-- Première section de présentation !-->
 	<section class="accueil">
 		<h1 id="Titre_accueil">Bienvenue !</h1>			
 	</section>
-	<!-- Seconde section de présentation pour vous inciter à me découvrir !-->
 	<section class="accueil">
-		<h2>Vous voilà dans la page d'accueil</h2>
+		<h2>Vous voilà dans la page Choix batiments</h2>
+	</section>
+	<!-- Section des formulaires centraux -->
+	<section class="form-container">
+		<form action="../Batiment/redirect.php" method="post">
+			<h2>Formulaire 1</h2>
+				<label for="batiment">Veuillez choisir le bâtiment qui vous intéresse : </label>
+					<select name="batiment" id="batiment">
+						<option value="Bat_B">Bâtiment B</option>
+						<option value="Bat_E">Bâtiment E</option>
+					</select>
+				<p>
+					<input class="bouton" type="submit" value="Valider" />
+					<input class="bouton" type="reset" value="Annuler" />
+				</p>
+		</form>
 	</section>
 	<!-- Bloc aside permettant da valider les pages web!-->
 	<aside id="last">
@@ -53,4 +69,5 @@
 		</ul>  
   </footer>
 </body>
+</html>
 		
