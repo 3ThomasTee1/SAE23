@@ -18,7 +18,7 @@
 		$type_utilisateur = '';
 
 		// Vérifier dans la table Administration
-		$requete = "SELECT `mdp` FROM `Administration` WHERE `login` = '$login'";
+		$requete = "SELECT `mdp` FROM `Administration` WHERE `login` = '$login'"; 
 		$resultat = mysqli_query($id_bd, $requete);
 		if ($resultat) {
 			$ligne = mysqli_fetch_row($resultat);
@@ -30,7 +30,7 @@
 
 		// Si non trouvé dans Administration, vérifier dans Batiment
 		if (!$authentifie) {
-			$requete = "SELECT `mdp`, `login` FROM `Batiment` WHERE `login` = '$login'";
+			$requete = "SELECT `mdp`, `login` FROM `Batiment` WHERE `login` = '$login'"; //La récupération du login n'est pas obligatoire, juste au cas où.
 			$resultat = mysqli_query($id_bd, $requete);
 			if ($resultat) {
 				$ligne = mysqli_fetch_row($resultat);

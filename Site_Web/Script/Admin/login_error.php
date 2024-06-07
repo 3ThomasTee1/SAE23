@@ -8,16 +8,16 @@
 	<head>
 	   <meta charset="UTF-8" />
 	   <title>Identification erron&eacute;e</title>
-	   <link rel="stylesheet" type="text/css" href="../Styles/style_adaptatif.css" />
+	   <link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" />
 	 </head>
 
 	 <nav>
 		<ul class="Liens">
-			<li><a href="index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
+			<li><a href="../index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
 			<li><a href="login_form.php"> Administration</a></li>
-			<li><a href="Gestion.html"> Gestion</a></li>
-			<li><a href="Consultation.html"> Consultation</a></li>
-			<li><a href="Gestion_projet.html"> Gestion_projet</a></li>
+			<li><a href="../Gestionnaire/login_form.php"> Gestion</a></li>
+			<li><a href="../Consultation.html"> Consultation</a></li>
+			<li><a href="../Gestion_projet.html"> Gestion_projet</a></li>
 		</ul>
 	</nav>
 
@@ -29,7 +29,6 @@
 			$_SESSION = array(); // Réinitialisation du tableau de session
 			session_destroy();   // Destruction de la session
 			unset($_SESSION);    // Destruction du tableau de session
-			include("entete.html");
 		?>
 		<section>
 			<p>
@@ -59,7 +58,7 @@
 				<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
 				<li>Département Réseaux et Télécommunications</li>
 				<li>BUT1</li>
-				<li><a href="Mentions_legales.html"> Mentions légales</a></li>
+				<li><a href="../Mentions_legales.html"> Mentions légales</a></li>
 			</ul>  
   		</footer>
 	</body>
