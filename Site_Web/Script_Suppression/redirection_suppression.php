@@ -17,8 +17,6 @@
 	case "Mesure":
 		header("Location: ./mesure_suppression.php");
 		break;
-	
-	
 	}	
 	
  

@@ -22,11 +22,6 @@
         	</fieldset>
         		<input type="submit" value="Suivant"/>
     	</form>
-    	<script>
-       		function convertion_majuscules(input) {
-           		input.value = input.value.toUpperCase();
-       		}
-    	</script>
 	</body>
 	
 </html>

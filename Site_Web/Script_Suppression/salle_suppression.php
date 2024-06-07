@@ -9,8 +9,10 @@
 	
     	<h1>Choisir une salle à supprimmer :</h1>
     	
-    	<form action="" method="post">
+    	<form action="./suppression.php" method="post">
     		<fieldset>
+    			<input type="hidden" name="table" value="Salle">
+    			<input type="hidden" name="champ" value="nom_salle">
     			<?php
 			
 					include("../Script/mysql.php");
@@ -23,7 +25,7 @@
 						
 						extract($ligne);
 						echo "<label for=".$nom_salle."> Salle $nom_salle appartenant au bâtiment $id_batiment de type $type_salle et de capacité $capacite :</label>";
-        				echo "<input type=\"radio\" id=".$nom_salle." name=\"type\" value=".$nom_salle." />";
+        				echo "<input type=\"radio\" id=".$nom_salle." name=\"element\" value=".$nom_salle." />";
         				echo "</br>";
 					}
 			

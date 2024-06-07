@@ -9,8 +9,10 @@
 	
     	<h1>Choisir un capteur à supprimmer :</h1>
     	
-    	<form action="" method="post">
+    	<form action="./suppression.php" method="post">
     		<fieldset>
+    			<input type="hidden" name="table" value="Capteur">
+    			<input type="hidden" name="champ" value="nom_capteur">
     			<?php
 			
 					include("../Script/mysql.php");
@@ -23,7 +25,7 @@
 						
 						extract($ligne);
 						echo "<label for=".$nom_capteur."> Capteur $nom_capteur de type $type_capteur appartenant à la salle $nom_salle :</label>";
-        				echo "<input type=\"radio\" id=".$nom_capteur." name=\"type\" value=".$nom_capteur." />";
+        				echo "<input type=\"radio\" id=".$nom_capteur." name=\"element\" value=".$nom_capteur." />";
         				echo "</br>";
 					}
 			
