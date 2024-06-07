@@ -3,6 +3,18 @@
 	session_start();
 ?>
 
+<?php
+// mysql.php
+
+/* Script de connexion à la base de données */
+$id_bd = mysqli_connect('localhost', 'b3t', 'passb3t', 'sae23')
+or die("Connexion à la base de données impossible");
+
+/* Gestion de l'encodage des caractères */
+mysqli_query($id_bd, "SET NAMES 'utf8'");
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -47,36 +59,75 @@
   </section>
 
   <?php
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $salle = $_POST['batiment'];
+	include 'mysql.php';
 
-	// On vérifie quelle salle a été sélectionnée et on affiche le tableau correspondant
-	if ($salle == 'Salle_B105' || $salle == 'Salle_B205') {
-		echo '
-		<section class="resultat">
-			<table>
-				<caption>Données mesurées</caption>
-				<tr>
-					<th>Type</th>
-					<th>Date</th>
-					<th>Mesures</th>
-				</tr>
-				<tr>
-					<td>Type 1</td>
-					<td>01/01/2023</td>
-					<td>123</td>
-				</tr>
-				<tr>
-					<td>Type 2</td>
-					<td>02/02/2023</td>
-					<td>456</td>
-				</tr>
-			</table>
-		</section>
-		';
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		$salle = $_POST['batiment'];
+
+		// Requête SQL pour récupérer les capteurs associés à la salle sélectionnée
+		$sql_capteurs = "SELECT nom_capteur FROM Capteur WHERE nom_salle = '$salle'";
+		$result_capteurs = mysqli_query($id_bd, $sql_capteurs);
+
+		if (!$result_capteurs) {
+		    die("Erreur lors de la récupération des capteurs : " . mysqli_error($id_bd));
 		}
+
+		$capteurs = [];
+		while ($row = mysqli_fetch_assoc($result_capteurs)) {
+		    $capteurs[] = $row['nom_capteur'];
+		}
+
+		if (count($capteurs) > 0) {
+		    // Convertir le tableau de capteurs en une chaîne pour l'utiliser dans la requête SQL
+		    $capteurs_str = "'" . implode("','", $capteurs) . "'";
+		    
+		    // Requête SQL pour récupérer les mesures des capteurs associés à la salle sélectionnée
+		    $sql_mesures = "SELECT date, horaire, valeur, nom_capteur FROM Mesure WHERE nom_capteur IN ($capteurs_str)";
+		    $result_mesures = mysqli_query($id_bd, $sql_mesures);
+
+		    if (!$result_mesures) {
+		        die("Erreur lors de la récupération des mesures : " . mysqli_error($id_bd));
+		    }
+
+		    if (mysqli_num_rows($result_mesures) > 0) {
+		        echo '
+		        <section class="resultat">
+		            <table>
+		                <caption>Données mesurées</caption>
+		                <tr>
+		                    <th>Type</th>
+		                    <th>Date</th>
+		                    <th>Mesures</th>
+		                </tr>';
+
+		        while ($row = mysqli_fetch_assoc($result_mesures)) {
+		            echo '
+		            <tr>
+		                <td>lux</td>
+		                <td>' . htmlspecialchars($row['date']) . ' ' . htmlspecialchars($row['horaire']) . '</td>
+		                <td>' . htmlspecialchars($row['valeur']) . '</td>
+		            </tr>';
+		        }
+
+		        echo '
+		            </table>
+		        </section>';
+		    } else {
+		        echo '<p>Aucune donnée trouvée pour les capteurs de la salle sélectionnée.</p>';
+		    }
+
+		    // Libération du résultat des mesures
+		    mysqli_free_result($result_mesures);
+		} else {
+		    echo '<p>Aucun capteur trouvé pour la salle sélectionnée.</p>';
+		}
+
+		// Libération du résultat des capteurs et fermeture de la connexion
+		mysqli_free_result($result_capteurs);
+		mysqli_close($id_bd);
 	}
-  ?>
+	?>
+
 	</section>
 	<!-- Bloc aside permettant da valider les pages web!-->
 	<aside id="last">

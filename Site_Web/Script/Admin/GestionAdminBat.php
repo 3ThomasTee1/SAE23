@@ -1,6 +1,15 @@
 <?php
-	// Démarrage de la session
-	session_start();
+// Démarrage de la session
+session_start();
+include 'mysql.php';
+
+// Récupération des bâtiments présents dans la base de données
+$sql = "SELECT id_batiment, nom FROM Batiment";
+$result = mysqli_query($id_bd, $sql);
+
+if (!$result) {
+    die("Erreur lors de la récupération des données : " . mysqli_error($id_bd));
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +30,7 @@
 	<nav>
 		<ul class="Liens">
 			<li><a href="index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
-			<li><a href="Administration.html"> Administration</a></li>
+			<li><a href="/Admin/login_form.php"> Administration</a></li>
 			<li><a href="Gestion.html"> Gestion</a></li>
 			<li><a href="Consultation.html"> Consultation</a></li>
 			<li><a href="Gestion_projet.html"> Gestion_projet</a></li>
@@ -34,20 +43,23 @@
 		<h2>Vous voilà dans la page Choix batiments</h2>
 	</section>
 	<!-- Section des formulaires centraux -->
-	<section class="form-container">
-		<form action="../Batiment/redirect.php" method="post">
-			<h2>Formulaire 1</h2>
-				<label for="batiment">Veuillez choisir le bâtiment qui vous intéresse : </label>
-					<select name="batiment" id="batiment">
-						<option value="Bat_B">Bâtiment B</option>
-						<option value="Bat_E">Bâtiment E</option>
-					</select>
-				<p>
-					<input class="bouton" type="submit" value="Valider" />
-					<input class="bouton" type="reset" value="Annuler" />
-				</p>
-		</form>
-	</section>
+	   <section class="form-container">
+        <form action="../Batiment/redirect.php" method="post">
+            <h2>Formulaire 1</h2>
+            <label for="batiment">Veuillez choisir le bâtiment qui vous intéresse : </label>
+            <select name="batiment" id="batiment">
+                <?php while ($batiment = mysqli_fetch_assoc($result)): ?>
+                    <option value="<?php echo htmlspecialchars($batiment['id_batiment']); ?>">
+                        <?php echo htmlspecialchars($batiment['nom']); ?>
+                    </option>
+                <?php endwhile; ?>
+            </select>
+            <p>
+                <input class="bouton" type="submit" value="Valider" />
+                <input class="bouton" type="reset" value="Annuler" />
+            </p>
+        </form>
+      </section>
 	<!-- Bloc aside permettant da valider les pages web!-->
 	<aside id="last">
 		<hr>
@@ -70,4 +82,10 @@
   </footer>
 </body>
 </html>
+
+<?php
+// Libération du résultat et fermeture de la connexion
+mysqli_free_result($result);
+mysqli_close($id_bd);
+?>
 		

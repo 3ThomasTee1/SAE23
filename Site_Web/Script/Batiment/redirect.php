@@ -2,15 +2,15 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $batiment = $_POST['batiment'];
 
-    if ($batiment == 'Bat_B') {
+    if ($batiment == 'B') {
         header('Location: ../Gestionnaire/GestionGestionnaire1.php');
         exit();
-    } elseif ($batiment == 'Bat_E') {
+    } elseif ($batiment == 'E') {
         header('Location: ../Gestionnaire/GestionGestionnaire2.php');
         exit();
     } else {
         // Redirection par défaut au cas où la valeur est inattendue
-        header('Location: index.html');
+        header('Location: ../index.html');
         exit();
     }
 }
