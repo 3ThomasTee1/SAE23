@@ -1,7 +1,7 @@
 <?php
 
 	//Inclusion des fichiers contenant les accès à la base de données
-	include('mysql.php');
+	include('../Script/mysql.php');
 	
 	//Récupération des valeurs des divers formulaires
 	$batiment=$_POST['batiment'];
@@ -18,7 +18,7 @@
 	// Préparer les requêtes SQL
 	$requete_batiment = "REPLACE INTO `sae23`.`Batiment` (`id_batiment`, `nom`, `login`, `mdp`) VALUES ('$batiment', '$nom_batiment', '$login', '$mdp')";
 	$requete_salle = "REPLACE INTO `sae23`.`Salle` (`nom_salle`, `type_salle`, `capacite`, `id_batiment`) VALUES ('$salle', '$type_salle', '$capacite_salle', '$batiment')";
-	$requete_capteur = "REPLACE INTO `sae23`.`Capteur` (`nom_capteur`, `type_capteur`, `unite`, `nom_salle`) VALUES ('$capteur', 'AM107', 'lux', '$salle')";
+	$requete_capteur = "REPLACE INTO `sae23`.`Capteur` (`nom_capteur`, `type_capteur`, `unite`, `nom_salle`) VALUES ('$capteur', 'luminosité', 'lux', '$salle')";
 	
 	// Exécuter les requêtes SQL
 	if (mysqli_query($id_bd, $requete_batiment)) {
