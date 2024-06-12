@@ -22,7 +22,7 @@
 		if ($ligne && $motdep == $ligne[0]) {
 			$_SESSION["auth"] = TRUE;		
 			mysqli_close($id_bd);
-			echo "<script type='text/javascript'>document.location.replace('GestionAdmin.php');</script>";
+			echo "<script type='text/javascript'>document.location.replace('../../Script_Creation/creer_batiment.php');</script>";
 		} else {
 			$_SESSION = array(); // Réinitialisation du tableau de session
 			session_destroy();   // Destruction de la session
