@@ -1,15 +1,17 @@
 <?php
 	// Démarrage de la session
 	session_start();
-	include 'mysql.php';
+?>
 
-	// Récupération des bâtiments présents dans la base de données
-	$sql = "SELECT nom_salle FROM Salle WHERE id_batiment = 'B'";
-	$result = mysqli_query($id_bd, $sql);
+<?php
+// mysql.php
 
-	if (!$result) {
-		die("Erreur lors de la récupération des données : " . mysqli_error($id_bd));
-	}
+/* Script de connexion à la base de données */
+$id_bd = mysqli_connect('localhost', 'b3t', 'passb3t', 'sae23')
+or die("Connexion à la base de données impossible");
+
+/* Gestion de l'encodage des caractères */
+mysqli_query($id_bd, "SET NAMES 'utf8'");
 ?>
 
 
@@ -42,21 +44,90 @@
 		<h2>Vous voilà dans la page Batiment B</h2>
 	</section>
 	<section class="form-container">
-		<form action="../Batiment/redirect2.php" method="post">
-			<h2>Formulaire 2</h2>
-				<label for="salle">Veuillez choisir la salle qui vous intéresse : </label>
-					<select name="salle" id="salle">
-						<?php while ($salle = mysqli_fetch_assoc($result)): ?>
-				        	<option value="<?php echo htmlspecialchars($salle['nom_salle']); ?>">
-				            	<?php echo htmlspecialchars($salle['nom_salle']); ?>
-				        	</option>
-				    	<?php endwhile; ?>
-					</select>
-				<p>
-					<input class="bouton" type="submit" value="Valider" />
-					<input class="bouton" type="reset" value="Annuler" />
-				</p>
-		</form>
+	<form action="GestionGestionnaire1.php" method="post">
+		<h2>Formulaire 2</h2>
+			<label for="batiment">Veuillez choisir la salle qui vous intéresse : </label>
+				<select name="batiment" id="batiment">
+					<option value="Salle_B105">Salle B105</option>
+					<option value="Salle_B205">Salle B205</option>
+				</select>
+			<p>
+				<input class="bouton" type="submit" value="Valider" />
+				<input class="bouton" type="reset" value="Annuler" />
+			</p>
+	</form>
+  </section>
+
+  <?php
+	include 'mysql.php';
+
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		$salle = $_POST['batiment'];
+
+		// Requête SQL pour récupérer les capteurs associés à la salle sélectionnée
+		$sql_capteurs = "SELECT nom_capteur FROM Capteur WHERE nom_salle = '$salle'";
+		$result_capteurs = mysqli_query($id_bd, $sql_capteurs);
+
+		if (!$result_capteurs) {
+		    die("Erreur lors de la récupération des capteurs : " . mysqli_error($id_bd));
+		}
+
+		$capteurs = [];
+		while ($row = mysqli_fetch_assoc($result_capteurs)) {
+		    $capteurs[] = $row['nom_capteur'];
+		}
+
+		if (count($capteurs) > 0) {
+		    // Convertir le tableau de capteurs en une chaîne pour l'utiliser dans la requête SQL
+		    $capteurs_str = "'" . implode("','", $capteurs) . "'";
+		    
+		    // Requête SQL pour récupérer les mesures des capteurs associés à la salle sélectionnée
+		    $sql_mesures = "SELECT date, horaire, valeur, nom_capteur FROM Mesure WHERE nom_capteur IN ($capteurs_str)";
+		    $result_mesures = mysqli_query($id_bd, $sql_mesures);
+
+		    if (!$result_mesures) {
+		        die("Erreur lors de la récupération des mesures : " . mysqli_error($id_bd));
+		    }
+
+		    if (mysqli_num_rows($result_mesures) > 0) {
+		        echo '
+		        <section class="resultat">
+		            <table>
+		                <caption>Données mesurées</caption>
+		                <tr>
+		                    <th>Type</th>
+		                    <th>Date</th>
+		                    <th>Mesures</th>
+		                </tr>';
+
+		        while ($row = mysqli_fetch_assoc($result_mesures)) {
+		            echo '
+		            <tr>
+		                <td>lux</td>
+		                <td>' . htmlspecialchars($row['date']) . ' ' . htmlspecialchars($row['horaire']) . '</td>
+		                <td>' . htmlspecialchars($row['valeur']) . '</td>
+		            </tr>';
+		        }
+
+		        echo '
+		            </table>
+		        </section>';
+		    } else {
+		        echo '<p>Aucune donnée trouvée pour les capteurs de la salle sélectionnée.</p>';
+		    }
+
+		    // Libération du résultat des mesures
+		    mysqli_free_result($result_mesures);
+		} else {
+		    echo '<p>Aucun capteur trouvé pour la salle sélectionnée.</p>';
+		}
+
+		// Libération du résultat des capteurs et fermeture de la connexion
+		mysqli_free_result($result_capteurs);
+		mysqli_close($id_bd);
+	}
+	?>
+
 	</section>
 	<!-- Bloc aside permettant da valider les pages web!-->
 	<aside id="last">

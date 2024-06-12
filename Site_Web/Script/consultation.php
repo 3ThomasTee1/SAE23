@@ -1,35 +1,113 @@
-<?php
-// Inclure le fichier de connexion
-include('Admin/mysql.php');
 
-// Requête SQL pour récupérer les dernières mesures de chaque capteur
-$sql = "
-    SELECT c.nom_capteur, c.unite, m1.date, m1.horaire, m1.valeur
-    FROM Capteur c
-    JOIN Mesure m1 ON c.nom_capteur = m1.nom_capteur
-    LEFT JOIN Mesure m2 ON c.nom_capteur = m2.nom_capteur AND (m1.date < m2.date OR (m1.date = m2.date AND m1.horaire < m2.horaire))
-    WHERE m2.nom_capteur IS NULL
-    ORDER BY c.nom_capteur
-";
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Accueil</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
+  <meta name="author" content="Thomas Tresgots">
+  <meta name="description" content="SAE 23 - Accueil">
+  <meta name="keywords" content="Accueil">
+  <link rel="stylesheet" type="text/css" href="../Styles/style_adaptatif.css" media="screen">
+  <!-- Ce lien me permet de pouvoir utiliser des icônes, très utiles pour habiller le site. Ces icônes sont symbolisées pour la balise <i> !-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"> 
+</head>
+<body>
+<!-- Barre de navigation !-->
+	<nav>
+		<ul class="Liens">
+			<li><a href="index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
+			<li><a href="Admin/login_form.php"> Administration</a></li>
+			<li><a href="Gestionnaire/login_form.php"> Gestion</a></li>
+			<li><a href="consultation.php"> Consultation</a></li>
+			<li><a href="Gestion_projet.html"> Gestion_projet</a></li>
+		</ul>
+	</nav>
+	<!-- Désolé d'avoir utilisé un div, c'est le seul sur mon site web. C'était pour me permettre de mieux déplacer l'image.!-->
+	<!--<div><img id="Image_accueil" src="Images/Moi.jpg" alt="Image d'accueil" title="Image d'accueil"></div>-->
+	<!-- Première section de présentation !-->
+	<section class="accueil">
+		<h1 id="Titre_accueil">Bienvenue !</h1>			
+	</section>
+	<!-- Seconde section de présentation pour vous inciter à me découvrir !-->
+	<section class="accueil">
+		<?php
+			// Inclure le fichier de connexion
+			include('Admin/mysql.php');
 
-$result = mysqli_query($id_bd, $sql);
+			// Requête SQL pour récupérer les dernières mesures de chaque capteur
+			$sql = "
+				SELECT 
+					Capteur.nom_capteur, 
+					Capteur.unite, 
+					Capteur.nom_salle,
+					DATE_FORMAT(Mesure.date, '%d/%m/%Y') AS date, 
+					Mesure.horaire, 
+					Mesure.valeur
+				FROM Capteur
+				INNER JOIN Mesure 
+				ON Capteur.nom_capteur = Mesure.nom_capteur
+				WHERE CONCAT(Mesure.date, ' ', Mesure.horaire) = (
+					SELECT MAX(CONCAT(date, ' ', horaire))
+					FROM Mesure
+					WHERE Capteur.nom_capteur = Mesure.nom_capteur
+				)
+				ORDER BY Mesure.date DESC, Mesure.horaire DESC
+					
+			";
 
-// Vérifier si des résultats ont été trouvés
-if (mysqli_num_rows($result) > 0) {
-    // Afficher les résultats sous forme de tableau HTML
-    echo "<table border='1'>";
-    echo "<tr><th>Nom Capteur</th><th>Unité</th><th>Date et Horaire</th><th>Valeur</th></tr>";
 
-    while($row = mysqli_fetch_assoc($result)) {
-        $dateHoraire = $row['date'] . ' ' . $row['horaire'];
-        echo "<tr><td>" . $row['nom_capteur'] . "</td><td>" . $row['unite'] . "</td><td>" . $dateHoraire . "</td><td>" . $row['valeur'] . "</td></tr>";
-    }
+			$resultat = mysqli_query($id_bd, $sql);
+			
+			
+			echo "<table> 
+						<tr><th>Salle</th><th>Capteur</th><th>Date et Heure</th><th>Valeur</th><th>Unité</th></tr>";
 
-    echo "</table>";
-} else {
-    echo "Aucune mesure trouvée.";
-}
+			while($ligne = mysqli_fetch_assoc($resultat)){
+				extract($ligne);
 
-// Fermer la connexion
-mysqli_close($id_bd);
-?>
+				
+				
+				echo "<tr><td>$nom_salle</td><td>$nom_capteur</td><td>$date $horaire</td><td>$valeur</td><td>$unite</td></tr>";
+
+			}
+			echo "</table>";
+			
+		?>
+	</section>
+	<!-- Bloc aside permettant da valider les pages web!-->
+	<aside id="last">
+		<hr>
+			<p><em> Validation de la page HTML5 - CSS3 </em></p>
+				<a href="https://validator.w3.org/nu/?doc=http%3A%2F%2Ftresgots.atwebpages.com%2FSAE_14%2Findex.html" target="_blank"> 
+					<img class= "image-responsive" src="Images/html5-validator-badge-blue.png" alt="HTML5 Valide !">
+				</a>
+				<a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Ftresgots.atwebpages.com%2FSAE_14%2FStyle%2FStyle_adaptatif.css" target="_blank">
+					<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
+				</a>
+	</aside>
+	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+	<footer>
+		<ul>
+			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
+			<li>Département Réseaux et Télécommunications</li>
+			<li>BUT1</li>
+			<li><a href="Mentions_legales.html"> Mentions légales</a></li>
+		</ul>  
+  </footer>
+</body>
+		
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
