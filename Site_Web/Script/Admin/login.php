@@ -11,7 +11,7 @@
 		header("Location:login_error.php");
 	} else {
 		// Accès à la base de données
-		include("mysql.php");
+		include("../mysql.php");
 
 		// Requête pour récupérer le mot de passe associé au login fourni
 		$requete = "SELECT `mdp` FROM `Administration` WHERE `login` = '$login'";
@@ -22,7 +22,7 @@
 		if ($ligne && $motdep == $ligne[0]) {
 			$_SESSION["auth"] = TRUE;		
 			mysqli_close($id_bd);
-			echo "<script type='text/javascript'>document.location.replace('../../Script_Creation/creer_batiment.php');</script>";
+			echo "<script type='text/javascript'>document.location.replace('GestionAdmin.html');</script>";
 		} else {
 			$_SESSION = array(); // Réinitialisation du tableau de session
 			session_destroy();   // Destruction de la session
