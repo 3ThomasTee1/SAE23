@@ -2,15 +2,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Accueil</title>
+  <title>Consultation</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
-  <meta name="author" content="Thomas Tresgots">
-  <meta name="description" content="SAE 23 - Accueil">
-  <meta name="keywords" content="Accueil">
-  <link rel="stylesheet" type="text/css" href="../Styles/style_adaptatif.css" media="screen">
-  <!-- Ce lien me permet de pouvoir utiliser des icônes, très utiles pour habiller le site. Ces icônes sont symbolisées pour la balise <i> !-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"> 
+  <meta name="description" content="SAE 23">
+	<link rel="stylesheet" type="text/css" href="../Styles/style_adaptatif.css" media="screen" />
 </head>
 <body>
 <!-- Barre de navigation !-->
@@ -20,7 +16,7 @@
 			<li><a href="Admin/login_form.php"> Administration</a></li>
 			<li><a href="Gestionnaire/login_form.php"> Gestion</a></li>
 			<li><a href="consultation.php"> Consultation</a></li>
-			<li><a href="Gestion_projet.html"> Gestion_projet</a></li>
+			<li><a href="Gestion_projet.html"> Gestion de projet</a></li>
 		</ul>
 	</nav>
 	<!-- Désolé d'avoir utilisé un div, c'est le seul sur mon site web. C'était pour me permettre de mieux déplacer l'image.!-->
@@ -33,7 +29,7 @@
 	<section class="accueil">
 		<?php
 			// Inclure le fichier de connexion
-			include('Admin/mysql.php');
+			include('mysql.php');
 
 			// Requête SQL pour récupérer les dernières mesures de chaque capteur
 			$sql = "
@@ -92,7 +88,7 @@
 			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
 			<li>Département Réseaux et Télécommunications</li>
 			<li>BUT1</li>
-			<li><a href="Mentions_legales.html"> Mentions légales</a></li>
+			<li>2024</li>
 		</ul>  
   </footer>
 </body>

@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Mesures</title>
+  <title>Afficher salle</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
-  <meta name="author" content="Thomas Tresgots">
-  <meta name="description" content="SAE 23 - Mesures">
-  <meta name="keywords" content="Mesures">
-  <link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen">
-  <!-- Ce lien me permet de pouvoir utiliser des icônes, très utiles pour habiller le site. Ces icônes sont symbolisées pour la balise <i> !-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"> 
+  <meta name="description" content="SAE 23">
+	<link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen" />
 </head>
 <body>
 <!-- Barre de navigation !-->
 	<nav>
 		<ul class="Liens">
 			<li><a href="../index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
-			<li><a href="login_form.php"> Administration</a></li>
+			<li><a href="../Admin/login_form.php"> Administration</a></li>
 			<li><a href="../Gestionnaire/login_form.php"> Gestion</a></li>
-			<li><a href="../Consultation.html"> Consultation</a></li>
+			<li><a href="../consultation.php"> Consultation</a></li>
 			<li><a href="../Gestion_projet.html"> Gestion_projet</a></li>
 		</ul>
 	</nav>
+
 	<?php
 		//Inclusion du script de connexion à la base de données.
 		include('../mysql.php');
@@ -36,19 +33,19 @@
 		switch ($plage_temps) {
     		case '1_heure':
         		$condition = "AND CONCAT(Mesure.date, ' ', Mesure.horaire) >= NOW() - INTERVAL 1 HOUR";
-        		$message="la dernière heure";
+        		$message="la dernière heure.";
         		break;
     		case '2_heures':
         		$condition = "AND CONCAT(Mesure.date, ' ', Mesure.horaire) >= NOW() - INTERVAL 2 HOUR";
-        		$message="les deux dernières heures";
+        		$message="les deux dernières heures.";
         		break;
     		case '12_heures':
         		$condition = "AND CONCAT(Mesure.date, ' ', Mesure.horaire) >= NOW() - INTERVAL 12 HOUR";
-        		$message="les douze dernières heures";
+        		$message="les douze dernières heures.";
         		break;
     		case '1_jour':
         		$condition = "AND CONCAT(Mesure.date, ' ', Mesure.horaire) >= NOW() - INTERVAL 1 DAY";
-        		$message="le dernier jour";
+        		$message="le dernier jour.";
         		break;
     		case '2_jours':
         		$condition = "AND CONCAT(Mesure.date, ' ', Mesure.horaire) >= NOW() - INTERVAL 2 DAY";
@@ -56,10 +53,10 @@
         		break;
     		case '1_semaine':
         		$condition = "AND CONCAT(Mesure.date, ' ', Mesure.horaire) >= NOW() - INTERVAL 1 WEEK";
-        		$message="la dernière semaine";
+        		$message="la dernière semaine.";
         		break;
     		case 'debut':
-    			$message="depuis le début";
+    			$message="depuis le début.";
     			break;
     		default:
         		break;
@@ -158,7 +155,7 @@
 			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
 			<li>Département Réseaux et Télécommunications</li>
 			<li>BUT1</li>
-			<li><a href="../Mentions_legales.html"> Mentions légales</a></li>
+			<li>2024</li>
 		</ul>  
   </footer>
 </body>

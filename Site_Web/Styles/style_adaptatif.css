@@ -1,6 +1,6 @@
 /* CSS style adaptatif */
 
-/* Cette commande permet de rendre la navigation plus fluide lorsque l'on scrool ou lorsqu'un lien nous redirige vers un autre endroit de la page*/
+/* Cette commande permet de rendre la navigation plus fluide lorsque l'on scrol ou lorsqu'un lien nous redirige vers un autre endroit de la page*/
 html{
 	scroll-behavior: smooth;
 }
@@ -20,7 +20,20 @@ body{
 	text-align: center
 }
 
-/* Styles pour centrer les formulaires */
+/* Style qui s'applique à l'image d'accueil */
+
+div{
+	text-align: center;
+	margin-top: 25px;
+}
+
+#Image_accueil{
+	width: 20%;
+	height: 20%;
+	border-radius: 50%;
+}
+
+/* Styles pour centrer les formulaires 'batiment'*/
 
 .form-container {
     display: flex;
@@ -29,7 +42,6 @@ body{
     justify-content: center;
     height: 80vh; /* Ajustez la hauteur selon vos besoins */
 }
-
 .form-container form {
     margin: 10px;
     padding: 20px;
@@ -39,11 +51,9 @@ body{
     width: 500px; /* Ajustez la largeur selon vos besoins */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .form-container form h2 {
     text-align: center;
 }
-
 .form-container form label,
 .form-container form select,
 .form-container form input.bouton {
@@ -52,19 +62,17 @@ body{
     margin: 5px 0;
     font-size: 16px;
 }
-
 .form-container form input.bouton {
     background-color: #333;
     color: white;
     border: none;
     cursor: pointer;
 }
-
 .form-container form input.bouton:hover {
     background-color: #555;
 }
   
-/* Style qui s'applique aux tableaux */
+/* Style qui s'applique au tableau présent dans la page aspects technique */
 
 table{
 	width: 65%;
@@ -159,6 +167,19 @@ a:hover{
 	color: black;
 }
 
+/* Style qui s'applique à tous les titres de la page d'accueil*/
+
+.Titre_accueil{
+	font-size: 50px;
+}
+
+/* Style qui s'applique à tous les titres h1 du portfolio*/
+
+.Titre_h1{
+	font-size: 35px;
+	margin-left: 30px;
+}
+
 /* Style qui s'applique à toutes les sections*/
 
 section{
@@ -170,7 +191,14 @@ section{
 	font-size: 20px
 }
 
-/* Style qui s'applique aux images de la page gestion projet */
+/* Style qui s'applique sur les photos et les vidéos */
+
+.Images_et_video{
+	width: 600px;
+	height: auto;
+}
+
+/* Style qui s'applique aux images de la page aspects_technique */
 
 .Images_livrable{
 	width: 1080px;
@@ -186,7 +214,15 @@ section{
 	font-size: 20px;
 }
 
-/* Style qui s'applique au bloc aside */
+/* Style qui s'applique aux liens de la renvoyant vers une nouvelle page */
+
+.Article{
+	color: black;
+}
+
+/* Style qui s'applique au bloc 
+
+ */
 
 aside#last{
   margin: 50px
@@ -217,9 +253,8 @@ aside.encadre {
     position: absolute; /* Utilisation de la position absolue */
     top: 20%; /* Positionner le haut du bloc à 50% de la hauteur de son conteneur */
     right: 5%; /* Positionner la gauche du bloc à 50% de la largeur de son conteneur */
-
-
-
+}
+	
 /* Style qui s'applique au pied de page */
 
 footer {
@@ -237,6 +272,65 @@ footer ul li{
   width:25%;
   list-style-type: none;
 }
+
+/***************************************************Sup crea batiment*****************************************************************************/
+
+.SuppCrea {
+    background-color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+
+
+
+.SuppCrea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Ajuste automatiquement la hauteur selon le contenu */
+    padding: 20px; /* Ajoute un padding pour espacer le contenu */
+    background-color: #f0f0f0;
+}
+
+.SuppCrea table {
+    background-color: white;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.SuppCrea td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 16px;
+}
+
+.SuppCrea a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.SuppCrea a:hover {
+    background-color: #f0f0f0;
+}
+
+
+@media (max-width: 600px) {
+    .SuppCrea table {
+        width: 100%;
+    }
+}
+
+
+
 
 
 
@@ -303,135 +397,125 @@ button {
 
 /****************************************************/
 
+
+
+
+
+
+
+
 /* Style qui s'adapte en fonction de la type de média utilisé. (téléphone) */
-@media screen and (max-width: 780px) {
-    nav {
-        width: 100%;
-        height: auto; /* Ajustement de la hauteur */
-        background-color: #333;
-        display: flex;
-        flex-direction: column; /* Pour aligner les liens verticalement */
-        align-items: center;
-        padding: 20px 0;
-    }
 
-    nav .Liens {
-        text-align: center;
-        width: 100%;
-        height: auto;
-        margin: auto;
-        flex-direction: column; /* Pour aligner les liens verticalement */
-    }
-
-    nav .Liens li {
-        width: 100%;
-        margin: 10px 0; /* Espacement vertical entre les liens */
-    }
-
-    nav .Liens li a {
-        justify-content: center;
-        display: flex;
-        color: white;
-        padding: 10px;
-        font-size: 22px;
-    }
-
-    #Image_accueil {
-        width: 40%;
-        height: 40%;
-        border-radius: 50%;
-    }
-
-    .accueil {
-        width: 80%;
-        margin: auto;
-    }
-
-    .Titre_h1 {
-        font-size: 35px;
-        margin-left: 30px;
-    }
-
-    section {
-        padding-top: 12px;
-        padding-left: 15px;
-        padding-right: 15px;
-        line-height: 2em;
-        font-size: 20px;
-    }
-
-    .Images_et_video {
-        width: 100%;
-        height: auto;
-    }
-
-    .Images_livrable {
-        width: 100%;
-        height: auto;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    aside#last {
-        margin: 25px;
-    }
-
-    .image-responsive {
-        max-width: 100%;
-        height: auto;
-    }
-
-    footer {
-        width: 100%;
-        height: auto; /* Ajustement de la hauteur */
-        padding-top: 15px;
-        padding-bottom: 15px;
-        background-color: #666666;
-        color: white;
-        display: flex;
-        flex-direction: column; /* Pour aligner les éléments verticalement */
-        align-items: center;
-    }
-
-    footer ul {
-        width: 100%;
-        padding: 0;
-    }
-
-    footer ul li {
-        text-align: center;
-        width: 100%;
-        list-style-type: none;
+@media screen and (max-width:780px){
+	
+	nav{
+	   width: 100%;
+	   height: 200px;
+	   background-color: #bfc9ca;
+	}
+	
+	nav .Liens{
+		text-align: center;
+		width: 90%;
+		height: auto;
+		margin: auto;
+	}
+	nav .Liens li{
+		float: none;
+		width: 100%;
 	}
 
-}
-/* Style qui s'adapte en fonction de la type de média utilisé. (tablette) */
-
-@media screen and (min-width:780px) and (max-width: 1280px){
-
+	nav .Liens li a{
+		justify-content: center;
+		display: flex;
+		color: white;
+		padding: 2px;
+		font-size: 22px;
+	}
+	
+	#Image_accueil{
+		width: 40%;
+		height: 40%;
+		border-radius: 50%;
+	}
+	
+	.accueil{
+		width: 80%;
+		margin: auto;
+	}
+	
+	.Titre_h1{
+		font-size: 35px;
+		margin-left: 30px;
+	}
+	
+	section{
+		padding-top: 12px;
+		padding-left: 15px;
+		padding-right: 15px;
+		line-height: 2em;
+		font-size: 20px;
+	}
+	
+	.Images_et_video{
+		width: 100%;
+		height: auto;
+	}
 	
 	.Images_livrable{
 		width: 100%;
 		height: auto;
 	}
-
-	/* Style qui s'applique au bloc aside des pages participants */
-
-	aside.encadre {
-		background: white;
-		padding: 20px;
-		border-radius: 8px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		width: 300px; /* Ajustez la largeur si nécessaire */
-		display: block; /* Utilisation de Flexbox */
-		margin: 400px auto 0; /* Marge de 400px du haut, centré horizontalement */
+	
+	table{
+		width: 100%;
+		border-collapse: collapse;
+	}
+	
+	aside#last {
+		margin: 25px;
+	}
+	
+	.image-responsive {
+		max-width: 100%;
+		height: auto;
+    }
+	
+	footer {
+		width: 100%;
+		height: 120px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		background-color: #666666;
+		color: white;
 	}
 
-	aside.encadre p {
-		margin-top: 10px; /* Marge supplémentaire au-dessus du paragraphe */
+	footer ul li{
+		text-align: center;
+		float: left;
+		width: 25%;
+		list-style-type: none;
+	}
+}
+
+/* Style qui s'adapte en fonction de la type de média utilisé. (tablette) */
+
+@media screen and (min-width:780px) and (max-width: 1280px){
+	
+	#Image_accueil{
+		width: 30%;
+		height: 40%;
+		border-radius: 50%;
+	}
+	
+	.Images_et_video{
+		width: 45%;
+		height: auto;
+	}
+	
+	.Images_livrable{
+		width: 100%;
+		height: auto;
 	}
 	
 	#Titre_h1{

@@ -5,19 +5,21 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Administration</title>
-		<link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css"/>
-	</head>
+<head>
+  <title>Formulaire connexion gestionnaire</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
+  <meta name="description" content="SAE 23">
+  <link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen">
+</head>
 
 	<nav>
 		<ul class="Liens">
 			<li><a href="../index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
 			<li><a href="../Admin/login_form.php"> Administration</a></li>
 			<li><a href="login_form.php"> Gestion</a></li>
-			<li><a href="../Consultation.html"> Consultation</a></li>
-			<li><a href="../Gestion_projet.html"> Gestion_projet</a></li>
+			<li><a href="../consultation.php"> Consultation</a></li>
+			<li><a href="../Gestion_projet.html"> Gestion de projet</a></li>
 		</ul>
 	</nav>
 
@@ -57,7 +59,7 @@
 				<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
 				<li>Département Réseaux et Télécommunications</li>
 				<li>BUT1</li>
-				<li><a href="../Mentions_legales.html"> Mentions légales</a></li>
+				<li>2024</li>
 			</ul>  
   		</footer>
 	</body>
