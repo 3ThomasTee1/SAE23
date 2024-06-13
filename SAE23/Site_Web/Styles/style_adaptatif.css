@@ -1,0 +1,533 @@
+/* CSS adaptive style */
+
+/* This command makes navigation smoother when you scroll or when a link redirects you to another part of the page*/.
+html{
+	scroll-behavior: smooth;
+}
+
+/* Style applied to the body of the page */
+
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0f0f0;
+}
+
+/* Style applied to sections of the home page */
+
+.accueil{
+	text-align: center
+}
+
+/* Style applied to the welcome image */
+
+div{
+	text-align: center;
+	margin-top: 25px;
+}
+
+#Image_accueil{
+	width: 20%;
+	height: 20%;
+	border-radius: 50%;
+}
+
+/* Styles for centring 'building' forms */
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Adjust the height to suit your needs */
+}
+.form-container form {
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 500px; /* Adjust the width to suit your needs */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.form-container form h2 {
+    text-align: center;
+}
+.form-container form label,
+.form-container form select,
+.form-container form input.bouton {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+}
+.form-container form input.bouton {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.form-container form input.bouton:hover {
+    background-color: #555;
+}
+  
+/* Style that applies to the table on the technical aspects page */
+
+table{
+	width: 65%;
+	border-collapse: collapse;
+}
+
+caption{
+  padding: 10px;
+  font-weight: bold;
+  background: #333333;
+  color: white;
+}
+
+th{
+  background: #C2BCBC;
+  color: white;
+  border: 1px solid black;
+}
+
+td{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+/* Style applied to the navigation bar */
+
+/* Style for the navigation bar */
+nav {
+	height: 80px;
+	width: 100%;
+	background-color: #333;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center; /* Centre the navigation bar */
+	align-items: center;
+}
+
+/* Style that applies to the navigation bar list */
+.Liens {
+	display: flex; /* Use flexbox to centre elements */
+	justify-content: center; /* Centre the items in the list */
+	padding: 0;
+	margin: 0;
+}
+
+/* Style applied to list items */
+.Liens li {
+	list-style-type: none;
+	margin: 0 15px; /* Add a space between elements */
+}
+
+/* Style applied to links in the list */
+.Liens li a {
+	color: white;
+	text-decoration: none;
+}
+
+/* Style applied to the contents list */
+
+.Sommaire ul{
+	color: black;
+}
+
+.Sommaire ul li{
+	justify-content: space-between;
+}
+
+/* Style applied to the font */
+
+a{
+	margin-right: 40px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 20px;
+	cursor: pointer;
+	background-image: linear-gradient(#ffffff, #ffffff);
+	background-size: 0% 0,1em;
+	background-position-y: 100%;
+	background-position-x: 50%;
+	background-repeat: no-repeat;
+}
+
+/* on:hover effect applied to links */
+
+a:hover{
+	text-decoration: underline;
+}
+
+/* Style that applies only to the table of contents*/
+
+.Sommaire a{
+	color: black;
+}
+
+/* Style applied to all headings on the home page*/
+
+.Titre_accueil{
+	font-size: 50px;
+}
+
+/* Style applied to all h1 titles in the portfolio*/
+
+.Titre_h1{
+	font-size: 35px;
+	margin-left: 30px;
+}
+
+/* Style that applies to all sections*/
+
+section{
+	padding-top: 10px;	
+	padding-left: 40px;
+	padding-right: 40px;
+	margin: 30px;
+	line-height: 2em;
+	font-size: 20px
+}
+
+/* Style applied to photos and videos */
+
+.Images_et_video{
+	width: 600px;
+	height: auto;
+}
+
+/* Style applied to images on the aspects_technique page */
+
+.Images_livrable{
+	width: 1080px;
+	height: auto;
+}
+
+/* Style applied to redirect links to the table of contents*/
+
+.Redirection{
+	color: black;
+	padding-left: 40px;
+	margin: 30px;
+	font-size: 20px;
+}
+
+/* Style applied to links from the to a new page */
+
+.Article{
+	color: black;
+}
+
+/* Style applied to the block*/
+
+aside#last{
+  margin: 50px
+}
+
+aside a{
+  text-decoration: none;
+}
+
+aside img{
+	border: 0;
+	width: 88px;
+	height: 31px;
+}
+
+/* Style applied to the aside block*/
+
+aside.encadre {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Adjust width if necessary */
+    display: flex; /* Using Flexbox */
+    flex-direction: column; /* Column display to align content vertically */
+    justify-content: center; /* Centre content vertically */
+    align-items: center; /* Centre content horizontally */
+    position: absolute; /* Using the absolute position */
+    top: 20%; /* Position the top of the block at 50% of the height of its container */
+    right: 5%; /* Position the left of the block at 50% of the width of its container */
+}
+	
+/* Style applied to the footer */
+
+footer {
+	width: 100%;
+	height: 70px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	background-color: #666666;
+	color: white;
+	text-align: center;
+}
+
+footer ul li{
+  float: left;
+  width:25%;
+  list-style-type: none;
+}
+
+/***************************************************Sup crea batiment*****************************************************************************/
+
+.SuppCrea {
+    background-color: black;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+
+
+
+.SuppCrea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Automatically height according to content */
+    padding: 20px; 
+    background-color: #f0f0f0;
+}
+
+.SuppCrea table {
+    background-color: white;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.SuppCrea td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 16px;
+}
+
+.SuppCrea a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.SuppCrea a:hover {
+    background-color: #f0f0f0;
+}
+
+
+@media (max-width: 600px) {
+    .SuppCrea table {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+/*****************Pour la page administration style formulaire***********************************/
+
+
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 60px; /* To avoid overlap with fixed header */
+    padding-bottom: 60px; /* To avoid overlap with fixed footer */
+    box-sizing: border-box;
+}
+
+
+
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px 0;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background: #2f3235;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+}
+
+
+/****************************************************/
+
+
+
+
+
+
+
+
+/* Style qui s'adapte en fonction de la type de média utilisé. (téléphone) */
+
+@media screen and (max-width:780px){
+	
+	nav{
+	   width: 100%;
+	   height: 200px;
+	   background-color: #bfc9ca;
+	}
+	
+	nav .Liens{
+		text-align: center;
+		width: 90%;
+		height: auto;
+		margin: auto;
+	}
+	nav .Liens li{
+		float: none;
+		width: 100%;
+	}
+
+	nav .Liens li a{
+		justify-content: center;
+		display: flex;
+		color: white;
+		padding: 2px;
+		font-size: 22px;
+	}
+	
+	#Image_accueil{
+		width: 40%;
+		height: 40%;
+		border-radius: 50%;
+	}
+	
+	.accueil{
+		width: 80%;
+		margin: auto;
+	}
+	
+	.Titre_h1{
+		font-size: 35px;
+		margin-left: 30px;
+	}
+	
+	section{
+		padding-top: 12px;
+		padding-left: 15px;
+		padding-right: 15px;
+		line-height: 2em;
+		font-size: 20px;
+	}
+	
+	.Images_et_video{
+		width: 100%;
+		height: auto;
+	}
+	
+	.Images_livrable{
+		width: 100%;
+		height: auto;
+	}
+	
+	table{
+		width: 100%;
+		border-collapse: collapse;
+	}
+	
+	aside#last {
+		margin: 25px;
+	}
+	
+	.image-responsive {
+		max-width: 100%;
+		height: auto;
+    }
+	
+	footer {
+		width: 100%;
+		height: 120px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		background-color: #666666;
+		color: white;
+	}
+
+	footer ul li{
+		text-align: center;
+		float: left;
+		width: 25%;
+		list-style-type: none;
+	}
+}
+
+/* Style qui s'adapte en fonction de la type de média utilisé. (tablette) */
+
+@media screen and (min-width:780px) and (max-width: 1280px){
+	
+	#Image_accueil{
+		width: 30%;
+		height: 40%;
+		border-radius: 50%;
+	}
+	
+	.Images_et_video{
+		width: 45%;
+		height: auto;
+	}
+	
+	.Images_livrable{
+		width: 100%;
+		height: auto;
+	}
+	
+	#Titre_h1{
+		font-size: 45px;
+		margin-left: 30px;
+	}
+	
+	table{
+		width: 80%;
+		border-collapse: collapse;
+	}
+}
+
+
+
+
+
