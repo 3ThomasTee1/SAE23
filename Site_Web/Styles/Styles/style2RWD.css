@@ -1,0 +1,189 @@
+
+
+body {
+  font-family: Arial, sans-serif; /* Sets the font family for the body text */
+  margin: 0; /* Removes the default outer margin of the body */
+  padding: 0; /* Removes the default inner padding of the body */
+  background-color: #f0f0f0; /* Sets the background color of the body */
+}
+
+
+
+header {
+  background-color: #333; /* Sets the background color of the header */
+  color: white; /* Sets the text color of the header */
+  text-align: center; /* Centers the text within the header */
+  padding: 20px; /* Adds an inner padding of 20 pixels to the header */
+  margin-bottom: 20px; /* Adds a margin at the bottom of the header */
+}
+
+
+table {
+  width: 80%; /* Sets the width of the table to 80% of its containing element */
+  margin: 20px auto; /* Centers the table horizontally with a margin of 20 pixels on top and bottom */
+  border-collapse: collapse; /* Collapses the borders of adjacent cells into a single border */
+  border-radius: 10px; /* Adds rounded corners to the table */
+  overflow: hidden; /* Hides any content that exceeds the dimensions of the table */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect to the table */
+}
+
+
+
+th, td {
+  padding: 15px; /* Adds padding inside each table cell */
+  text-align: center; /* Centers the text within each table cell */
+}
+
+
+
+th {
+  background-color: #333; /* Sets the background color of the header cells to a dark gray */
+  color: white; /* Sets the text color of the header cells to white */
+  border-radius: 10px 10px 0 0; /* Adds rounded corners to the top of the header cells */
+}
+
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Sets the background color of even rows to a light gray */
+}
+
+
+section {
+  margin: 0 auto 20px; /* Adds margin at the bottom of each section, centers the section horizontally */
+  width: 80%; /* Sets the width of the section to 80% of its containing element */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect to the section */
+  border-radius: 10px; /* Adds rounded corners to the section */
+  overflow: hidden; /* Hides any content that exceeds the dimensions of the section */
+  background-color: white; /* Sets the background color of the section to white */
+}
+
+
+
+h2, h3 {
+  background-color: #333; /* Sets the background color of h2 and h3 elements to a dark gray */
+  color: white; /* Sets the text color of h2 and h3 elements to white */
+  padding: 15px; /* Adds padding inside h2 and h3 elements */
+  margin: 10px; /* Adds margin around h2 and h3 elements */
+  border-radius: 10px 10px 0 0; /* Adds rounded corners to the top of h2 and h3 elements */
+}
+
+
+
+.cadre {
+  padding: 20px; /* Adds padding inside elements with class "cadre" */
+}
+
+
+
+ul {
+  list-style-type: none; /* Removes the default list-style-type (bullet points) for unordered lists */
+  padding: 0; /* Removes any default padding for unordered lists */
+}
+
+
+
+li {
+  margin-bottom: 10px; /* Adds margin at the bottom of each list item */
+}
+
+
+
+
+
+.legale {
+  color: white; /* Sets the text color of links with class "legale" to white */
+  text-decoration: none; /* Removes the underline decoration from links with class "legale" */
+}
+
+
+
+aside#last {
+  padding-top: 25px; /* Adds padding at the top of the aside element with id "last" */
+  padding-left: 20px; /* Adds padding at the left of the aside element with id "last" */
+  padding-right: 15px; /* Adds padding at the right of the aside element with id "last" */
+  padding-bottom: 90px; /* Adds padding at the bottom of the aside element with id "last" */
+}
+
+
+
+aside a {
+  text-decoration: none; /* Removes the underline decoration from links inside the aside element */
+}
+
+
+
+aside img {
+  border: 0; /* Removes the border around images inside the aside element */
+  width: 88px; /* Sets the width of images inside the aside element to 88 pixels */
+  height: 31px; /* Sets the height of images inside the aside element to 31 pixels */
+}
+
+
+
+a.rectangle-link {
+  display: inline-block; /* Displays the link as an inline block */
+  padding: 10px 20px; /* Adds padding inside the link */
+  border-radius: 10px; /* Adds rounded corners to the link */
+  background-color: #333; /* Sets the background color of the link to a dark gray */
+  color: white; /* Sets the text color of the link to white */
+  text-decoration: none; /* Removes the underline decoration from the link */
+  transition: background-color 0.3s ease; /* Adds a transition animation for the background color */
+}
+
+
+a.rectangle-link:hover {
+  background-color: #555; /* Changes the background color of the link on hover to a darker gray */
+}
+
+
+
+.centered-link {
+  text-align: center; /* Centers the text of the link */
+  margin-top: 20px; /* Adds space above the centered link */
+}
+
+
+
+
+
+
+
+footer {
+  position: fixed; /* Fixes the position of the footer */
+  left: 0; /* Sets the left edge of the footer to the left edge of the browser window */
+  bottom: 0; /* Sets the bottom edge of the footer to the bottom edge of the browser window */
+  width: 100%; /* Sets the width of the footer to 100% of the browser window */
+  padding-bottom: 15px; /* Adds padding at the bottom of the footer */
+  text-align: center; /* Centers the text within the footer */
+  justify-content: space-around; /* Distributes space evenly around the content in the footer */
+  background-color: rgba(0, 0, 0, 0.5); /* Sets the background color of the footer to a semi-transparent black */
+  color: white; /* Sets the text color of the footer to white */
+}
+
+
+
+footer ul li {
+  float: left; /* Floats the list items to the left */
+  width: 33%; /* Sets the width of each list item to one-third of the footer width */
+  list-style-type: none; /* Removes the default list-style-type (bullet points) */
+}
+
+
+
+footer ul li:first-child {
+  text-align: left; /* Aligns the text to the left within the first list item */
+}
+
+
+
+footer ul li:last-child {
+  text-align: right; /* Aligns the text to the right within the last list item */
+  /* float: right; */ /* Uncomment this line if you want the last list item to be aligned to the right using float */
+}
+
+
+
+
+
+
+
