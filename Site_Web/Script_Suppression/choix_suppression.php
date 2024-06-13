@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Suppression</title>
+  <title>Choix suppression</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
   <meta name="description" content="SAE 23">
@@ -17,31 +17,23 @@
 		</ul>
 	</nav>
 	<body>
-		
 	
-    	<h1>Supression de l élément choisi :</h1>
+    	<h1>Choisir un élément à supprimmer :</h1>
     	<section class="accueil">
-    			<?php
-			
-					include("../Script/mysql.php");
-					
-					$element=$_POST['element'];
-					
-					$table=$_POST['table'];
-					
-					$champ=$_POST['champ'];
-					
-					
-					$requete="DELETE FROM `sae23`.`$table` WHERE `$table`.`$champ` = '$element'";
-					
-					// Exécuter les requêtes SQL
-					if (mysqli_query($id_bd, $requete)) {
-    					echo "L'élément $element à bien été supprimé.<br>";
-					} else {
-    					echo "Erreur lors de la suppression : " . mysqli_error($id_bd) . "<br>";
-					}
-			
-				?>
+    	<form action="./redirection_suppression.php" method="post">
+    		<fieldset>
+    		<legend>Que souhaitez vous supprimer ?</legend>
+        		<label for="Batiment">Bâtiment :</label>
+        		<input type="radio" id="Batiment" name="type" value="Batiment" />
+        		</br>
+        		<label for="Salle">Salle :</label>
+        		<input type="radio" id="Salle" name="type" value="Salle" />
+        		</br>
+        		<label for="Capteur">Capteur:</label>
+        		<input type="radio" id="Capteur" name="type" value="Capteur" />
+        	</fieldset>
+        		<input type="submit" value="Suivant"/>
+    	</form>
 	</section>
 	</body>
 	

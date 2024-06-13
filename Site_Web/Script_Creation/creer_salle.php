@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-    	<meta charset="UTF-8">
-    	<title>Choix de la Salle</title>
-	</head>
+<head>
+  <title>Création salle</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
+  <meta name="description" content="SAE 23">
+  <link rel="stylesheet" type="text/css" href="../Styles/style_adaptatif.css" media="screen">
+</head>
 	<body>
     	<h1>Choisir la Salle</h1>
     	<?php
@@ -14,6 +17,7 @@
         	// Définir les salles en fonction du bâtiment sélectionné
         	$salles=["B" => ["B105", "B203"],"E" => ["E105", "E208"]];
     	?>
+	    <section class="accueil">
     	<form action="creer_capteur.php" method="post">
     		<fieldset>
     			<input type="hidden" name="batiment" value="<?php echo $_POST['batiment'];?>">
@@ -40,5 +44,6 @@
         	</fieldset>
         		<input type="submit" value="Suivant">
     	</form>
+	</section>
 	</body>
 </html>

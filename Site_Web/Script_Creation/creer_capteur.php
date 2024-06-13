@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Choisir le Capteur</title>
+  <title>Création capteur</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
+  <meta name="description" content="SAE 23">
+  <link rel="stylesheet" type="text/css" href="../Styles/style_adaptatif.css" media="screen">
 </head>
 <body>
     <h1>Choisir le Capteur</h1>
@@ -25,6 +28,7 @@
         //Définition les capteurs en fonction de la salle sélectionnée
         $capteurs = ["B105" => ["AM107-13"],"B203" => ["AM107-6"],"E105" => ["AM107-35"],"E208" => ["AM107-38"]];
     ?>
+    <section class="accueil">
     <form action="creation.php" method="post">
     	<input type="hidden" name="batiment" value="<?php echo $_POST['batiment'];?>">
     	<input type="hidden" name="salle" value="<?php echo $_POST['salle'];?>">
@@ -43,5 +47,7 @@
         </select>
         <input type="submit" value="Envoyer">
     </form>
+	</section>
+
 </body>
 </html>

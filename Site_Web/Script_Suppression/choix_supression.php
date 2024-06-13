@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-    	<meta charset="UTF-8" />
-    	<title>Choisir Bâtiment</title>
-	</head>
+<head>
+  <title>Choix bâtiment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
+  <meta name="description" content="SAE 23">
+  <link rel="stylesheet" type="text/css" href="../Styles/style_adaptatif.css" media="screen">
+</head>
 	<body>
 	
     	<h1>Choisir un élément à supprimmer :</h1>
