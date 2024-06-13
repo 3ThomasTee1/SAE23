@@ -1,5 +1,6 @@
 <?php
-
+	
+	//Redirecton in function of the type chosen
 	$type=$_POST['type'];
 	
 	

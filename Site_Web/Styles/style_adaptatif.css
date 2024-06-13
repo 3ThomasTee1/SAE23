@@ -1,11 +1,11 @@
-/* CSS style adaptatif */
+/* CSS adaptive style */
 
-/* Cette commande permet de rendre la navigation plus fluide lorsque l'on scrol ou lorsqu'un lien nous redirige vers un autre endroit de la page*/
+/* This command makes navigation smoother when you scroll or when a link redirects you to another part of the page*/.
 html{
 	scroll-behavior: smooth;
 }
 
-/* Style qui s'applique au corps de la page */
+/* Style applied to the body of the page */
 
 body{
   margin: 0px;
@@ -14,13 +14,13 @@ body{
   background-color: #f0f0f0;
 }
 
-/* Style qui s'applique aux sections de la page d'accueil */
+/* Style applied to sections of the home page */
 
 .accueil{
 	text-align: center
 }
 
-/* Style qui s'applique à l'image d'accueil */
+/* Style applied to the welcome image */
 
 div{
 	text-align: center;
@@ -33,14 +33,14 @@ div{
 	border-radius: 50%;
 }
 
-/* Styles pour centrer les formulaires 'batiment'*/
+/* Styles for centring 'building' forms */
 
 .form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh; /* Ajustez la hauteur selon vos besoins */
+    height: 80vh; /* Adjust the height to suit your needs */
 }
 .form-container form {
     margin: 10px;
@@ -48,7 +48,7 @@ div{
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 500px; /* Ajustez la largeur selon vos besoins */
+    width: 500px; /* Adjust the width to suit your needs */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .form-container form h2 {
@@ -72,7 +72,7 @@ div{
     background-color: #555;
 }
   
-/* Style qui s'applique au tableau présent dans la page aspects technique */
+/* Style that applies to the table on the technical aspects page */
 
 table{
 	width: 65%;
@@ -97,40 +97,40 @@ td{
   padding: 10px;
 }
 
-/* Style qui s'applique à la barre de navigation */
+/* Style applied to the navigation bar */
 
-/* Style pour la barre de navigation */
+/* Style for the navigation bar */
 nav {
 	height: 80px;
 	width: 100%;
 	background-color: #333;
 	margin: 0 auto;
 	display: flex;
-	justify-content: center; /* Centrer la barre de navigation */
+	justify-content: center; /* Centre the navigation bar */
 	align-items: center;
 }
 
-/* Style qui s'applique à la liste de la barre de navigation */
+/* Style that applies to the navigation bar list */
 .Liens {
-	display: flex; /* Utilisation de flexbox pour centrer les éléments */
-	justify-content: center; /* Centrer les éléments de la liste */
+	display: flex; /* Use flexbox to centre elements */
+	justify-content: center; /* Centre the items in the list */
 	padding: 0;
 	margin: 0;
 }
 
-/* Style qui s'applique aux éléments de la liste */
+/* Style applied to list items */
 .Liens li {
 	list-style-type: none;
-	margin: 0 15px; /* Ajouter un espace entre les éléments */
+	margin: 0 15px; /* Add a space between elements */
 }
 
-/* Style qui s'applique aux liens de la liste */
+/* Style applied to links in the list */
 .Liens li a {
 	color: white;
 	text-decoration: none;
 }
 
-/* Style qui s'applique à la liste du sommaire */
+/* Style applied to the contents list */
 
 .Sommaire ul{
 	color: black;
@@ -140,7 +140,7 @@ nav {
 	justify-content: space-between;
 }
 
-/* Style qui s'applique à la police de caractère */
+/* Style applied to the font */
 
 a{
 	margin-right: 40px;
@@ -155,32 +155,32 @@ a{
 	background-repeat: no-repeat;
 }
 
-/* Effet on:hover qui s'applique sur les liens */
+/* on:hover effect applied to links */
 
 a:hover{
 	text-decoration: underline;
 }
 
-/* Style qui s'applique uniquement au sommaire*/
+/* Style that applies only to the table of contents*/
 
 .Sommaire a{
 	color: black;
 }
 
-/* Style qui s'applique à tous les titres de la page d'accueil*/
+/* Style applied to all headings on the home page*/
 
 .Titre_accueil{
 	font-size: 50px;
 }
 
-/* Style qui s'applique à tous les titres h1 du portfolio*/
+/* Style applied to all h1 titles in the portfolio*/
 
 .Titre_h1{
 	font-size: 35px;
 	margin-left: 30px;
 }
 
-/* Style qui s'applique à toutes les sections*/
+/* Style that applies to all sections*/
 
 section{
 	padding-top: 10px;	
@@ -191,21 +191,21 @@ section{
 	font-size: 20px
 }
 
-/* Style qui s'applique sur les photos et les vidéos */
+/* Style applied to photos and videos */
 
 .Images_et_video{
 	width: 600px;
 	height: auto;
 }
 
-/* Style qui s'applique aux images de la page aspects_technique */
+/* Style applied to images on the aspects_technique page */
 
 .Images_livrable{
 	width: 1080px;
 	height: auto;
 }
 
-/* Style qui s'applique aux liens de redirection vers le sommaire*/
+/* Style applied to redirect links to the table of contents*/
 
 .Redirection{
 	color: black;
@@ -214,15 +214,13 @@ section{
 	font-size: 20px;
 }
 
-/* Style qui s'applique aux liens de la renvoyant vers une nouvelle page */
+/* Style applied to links from the to a new page */
 
 .Article{
 	color: black;
 }
 
-/* Style qui s'applique au bloc 
-
- */
+/* Style applied to the block*/
 
 aside#last{
   margin: 50px
@@ -238,24 +236,24 @@ aside img{
 	height: 31px;
 }
 
-/* Style qui s'applique au bloc aside*/
+/* Style applied to the aside block*/
 
 aside.encadre {
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px; /* Ajustez la largeur si nécessaire */
-    display: flex; /* Utilisation de Flexbox */
-    flex-direction: column; /* Affichage en colonne pour aligner le contenu verticalement */
-    justify-content: center; /* Centrer verticalement le contenu */
-    align-items: center; /* Centrer horizontalement le contenu */
-    position: absolute; /* Utilisation de la position absolue */
-    top: 20%; /* Positionner le haut du bloc à 50% de la hauteur de son conteneur */
-    right: 5%; /* Positionner la gauche du bloc à 50% de la largeur de son conteneur */
+    width: 300px; /* Adjust width if necessary */
+    display: flex; /* Using Flexbox */
+    flex-direction: column; /* Column display to align content vertically */
+    justify-content: center; /* Centre content vertically */
+    align-items: center; /* Centre content horizontally */
+    position: absolute; /* Using the absolute position */
+    top: 20%; /* Position the top of the block at 50% of the height of its container */
+    right: 5%; /* Position the left of the block at 50% of the width of its container */
 }
 	
-/* Style qui s'applique au pied de page */
+/* Style applied to the footer */
 
 footer {
 	width: 100%;
@@ -291,8 +289,8 @@ footer ul li{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto; /* Ajuste automatiquement la hauteur selon le contenu */
-    padding: 20px; /* Ajoute un padding pour espacer le contenu */
+    height: auto; /* Automatically height according to content */
+    padding: 20px; 
     background-color: #f0f0f0;
 }
 

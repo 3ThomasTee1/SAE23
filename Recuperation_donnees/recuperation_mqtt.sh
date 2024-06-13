@@ -1,14 +1,14 @@
 #!/bin/bash
 
 
-#Informations nécessaires à la connexion à la base de données
+#Information needed to connect to the database
 SOCKET="/opt/lampp/var/mysql/mysql.sock"
 UTILISATEUR="b3t"
 MDP="passb3t"
 BASE="sae23"
 
 
-#Fonction permettant d'inserer une mesure dans la base de données
+#Function for inserting a measurement into the database
 inserer_base(){
 	local valeur_luminosite=$1
 	local nom_capteur=$2
@@ -24,7 +24,7 @@ inserer_base(){
 }
 
 
-#Fonction permettant de savoir si le capteur est dans la base de données
+#Function to find out whether the sensor is in the database
 est_dans_base(){
 
 	local nom_capteur=$1
@@ -39,7 +39,7 @@ est_dans_base(){
 }
 
 
-#Fonction de traitement de chaque message 
+#Processing function for each message 
 traitement_message(){
 	
 	local message=$1 

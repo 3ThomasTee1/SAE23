@@ -1,4 +1,5 @@
 <?php
+	//Recovering the room concerned from the previous form
 	$salle=$_POST['salle'];
 ?>
 
@@ -12,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen" />
 </head>
 <body>
-<!-- Barre de navigation !-->
+<!-- Nav bar-->
 	<nav>
 		<ul class="Liens">
 			<li><a href="../index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
@@ -27,6 +28,8 @@
 	</section>
 	<section class="form-container">
 		<h1>Filtrer les données de la base de données</h1>
+		
+		<!-- Form for selecting the desired time range -->
 		<form action="afficher_salle.php" method="POST">
 			<input type="hidden" name="salle" value="<?php echo $salle;?>">
 		    <label for="plage_temps">Choisir une plage de temps :</label>
@@ -41,8 +44,9 @@
 		    </select>
 		    <button type="submit">Afficher les données</button>
 		</form>
+		
 	</section>
-	<!-- Bloc aside permettant da valider les pages web!-->
+	<!-- Aside block for validating web pages!-->
 	<aside id="last">
 		<hr>
 			<p><em> Validation de la page HTML5 - CSS3 </em></p>
@@ -53,10 +57,10 @@
 					<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
 				</a>
 	</aside>
-	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+	<!-- Footer block for visiting the Blagnac IUT website, and also for sending me an e-mail!-->
 	<footer>
 		<ul>
-			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
+			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l IUT de Blagnac</strong></a></li>
 			<li>Département Réseaux et Télécommunications</li>
 			<li>BUT1</li>
 			<li>2024</li>

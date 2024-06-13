@@ -19,6 +19,9 @@
 	
     	<h1>Choisir un bâtiment:</h1>
     	<section class="accueil">
+    	
+    	
+    	<!-- Form to select building aspects-->
     	<form action="creer_salle.php" method="post">
     		<fieldset>
         		<label for="batiment">Bâtiment :</label>
@@ -40,6 +43,7 @@
     	</form>
 	</section>
 
+		<!-- Script to convert nom_batiment to upper case-->
     	<script>
        		function convertion_majuscules(input) {
            		input.value = input.value.toUpperCase();
@@ -55,7 +59,7 @@
 					<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
 				</a>
 	</aside>
-	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+	<!-- Footer block allowing you to visit the Blagnac IUT website, and also allowing you to send me an email!-->
 	<footer>
 		<ul>
 			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>

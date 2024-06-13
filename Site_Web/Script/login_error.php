@@ -1,5 +1,5 @@
 <?php
-	// Démarrage de la session
+	//Session start
 	session_start();
 ?>
 
@@ -29,11 +29,11 @@
 
 
 	<body>
-		<!-- Affichage entete -->
+		<!-- Header display -->
 		<?php 
-			$_SESSION = array(); // Réinitialisation du tableau de session
-			session_destroy();   // Destruction de la session
-			unset($_SESSION);    // Destruction du tableau de session
+			$_SESSION = array(); // Resetting the session table
+			session_destroy();   // Delete session
+			unset($_SESSION);    // Delete session table
 		?>
 		<section>
 			<p>
@@ -57,7 +57,7 @@
 					<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
 				</a>
 		</aside>
-	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+		<!-- Footer block allowing you to visit the Blagnac IUT website, and also allowing you to send me an email!-->
 		<footer>
 			<ul>
 				<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>

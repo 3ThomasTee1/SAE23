@@ -3,7 +3,7 @@
 <head>
   <title>Afficher salle</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SAE 23">
 	<link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen" />
 </head>
@@ -20,14 +20,14 @@
 	</nav>
 
 	<?php
-		//Inclusion du script de connexion à la base de données.
+		//Include the database connection script.
 		include('../mysql.php');
 		
-		//Récupération des valeurs du formulaire par la méthode POST.
+		//Retrieving form values using the POST method.
 		$plage_temps=$_POST['plage_temps'];
 		$salle=$_POST['salle'];
 		
-		//Construction de la condition en fonction de la plage de temps choisie.
+		//Construct the condition according to the selected time range.
 		$condition="";
 		$message="";
 		switch ($plage_temps) {
@@ -63,7 +63,7 @@
 		}
 		
 		
-		//Requete pour récupérer le min, le max et la moyenne
+		//Request to retrieve the minimum, maximum and average values
 		$requete_calculs = "SELECT 
 								MIN(Mesure.valeur) AS minimum,
                           		MAX(Mesure.valeur) AS maximum,
@@ -79,7 +79,7 @@
     		exit;
 		}
 					
-		//Extraction du min, max, moyenne
+		//Extraction of min, max, average
 		$donnees_calculs = mysqli_fetch_assoc($resultat_calculs);
 		$minimum = $donnees_calculs['minimum'];
 		$maximum = $donnees_calculs['maximum'];
@@ -87,7 +87,7 @@
 		$moyenne = number_format($moyenne, 2);
 		
 
-		//requête pour les données.
+		//Request to retrieve the data.
 		$requete_donnees = "SELECT 
 						date_format(Mesure.date, '%d/%m/%Y') AS date, 
                    		Mesure.horaire, 
@@ -115,7 +115,7 @@
 		    </p>
 		</aside>";
 		
-		//creation du tableau de valeurs
+		//Create table of values
 		echo "<section>
 				<table>
 					<caption>Données mesurées</caption>
@@ -135,10 +135,10 @@
 		echo "</table>
 		</section>";
 		
-		
+		//Close connection
 		mysqli_close($id_bd);
 	?>
-	<!-- Bloc aside permettant da valider les pages web!-->
+	<!-- Aside block for validating web pages!-->
 	<aside id="last">
 		<hr>
 			<p><em> Validation de la page HTML5 - CSS3 </em></p>
@@ -149,10 +149,10 @@
 					<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
 				</a>
 	</aside>
-	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+	<!-- Footer block for visiting the Blagnac IUT website, and also for sending me an e-mail!-->
 	<footer>
 		<ul>
-			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
+			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l IUT de Blagnac</strong></a></li>
 			<li>Département Réseaux et Télécommunications</li>
 			<li>BUT1</li>
 			<li>2024</li>

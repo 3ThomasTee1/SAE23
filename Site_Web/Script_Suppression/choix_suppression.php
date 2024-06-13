@@ -20,6 +20,8 @@
 	
     	<h1>Choisir un élément à supprimmer :</h1>
     	<section class="accueil">
+    	
+    	<!-- Form to select the type of element to remove-->
     	<form action="./redirection_suppression.php" method="post">
     		<fieldset>
     		<legend>Que souhaitez vous supprimer ?</legend>

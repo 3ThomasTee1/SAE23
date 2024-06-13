@@ -22,24 +22,26 @@
     	<h1>Supression de l élément choisi :</h1>
     	<section class="accueil">
     			<?php
-			
+					//Include database connection file
 					include("../Script/mysql.php");
 					
+					//Recovering elements from previous forms
 					$element=$_POST['element'];
 					
 					$table=$_POST['table'];
 					
 					$champ=$_POST['champ'];
 					
-					
+					//Request to remove chosen element
 					$requete="DELETE FROM `sae23`.`$table` WHERE `$table`.`$champ` = '$element'";
 					
-					// Exécuter les requêtes SQL
+					
 					if (mysqli_query($id_bd, $requete)) {
     					echo "L'élément $element à bien été supprimé.<br>";
 					} else {
     					echo "Erreur lors de la suppression : " . mysqli_error($id_bd) . "<br>";
 					}
+					mysqli_close($id_bd);
 			
 				?>
 	</section>

@@ -10,7 +10,7 @@
 <body>
     <h1>Choisir le Capteur</h1>
     <?php
-        //Récupérer la salle sélectionnée et stocker dans la session
+        //Recover selected room and building information
         $batiment=$_POST['batiment'];
 		$nom_batiment=$_POST['nom_batiment'];
 		$login=$_POST['login'];
@@ -25,7 +25,7 @@
         echo "Vous avez choisi la salle $salle du batiment $batiment $type_salle, $capacite_salle, $login, $mdp, $nom_batiment";
         
 
-        //Définition les capteurs en fonction de la salle sélectionnée
+        //Defining the sensors according to the room selected
         $capteurs = ["B105" => ["AM107-13"],"B203" => ["AM107-6"],"E105" => ["AM107-35"],"E208" => ["AM107-38"]];
     ?>
     <section class="accueil">

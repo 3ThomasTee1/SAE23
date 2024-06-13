@@ -1,5 +1,5 @@
 <?php
-	// Démarrage de la session
+	//Session Start
 	session_start();
 ?>
 
@@ -9,7 +9,7 @@
 <head>
   <title>formulaire connexion administrateur</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <meta name="description" content="SAE 23">
 	<link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen" />
 </head>
@@ -31,15 +31,19 @@
         <section class="login-container">
 
             <h2>Connexion Administrateur</h2>
+            
+            <!-- Form used log in the administration console-->
             <form action="login.php" method="post" enctype="multipart/form-data">
-
-                <label for="login">Nom d'utilisateur</label>
-                <input type="text" name="login" id="login" placeholder="Nom d'utilisateur" required>
+            
+                <label for="login">Nom d utilisateur</label>
+                <input type="text" name="login" id="login" placeholder="Nom d utilisateur" required>
+                
                 <label for="mdp">Mot de passe</label>
                 <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required>
 
                 <button type="submit">Connexion</button>
             </form>
+            
         </section>
 	</main>
 
@@ -54,7 +58,9 @@
 						<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
 					</a>
 		</aside>
-	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+		
+		
+		<!-- Footer block allowing you to visit the Blagnac IUT website, and also allowing you to send me an email!-->
 		<footer>
 			<ul>
 				<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>

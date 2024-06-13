@@ -12,18 +12,23 @@
 	
     	<h1>Choisir un capteur à supprimmer :</h1>
         <section class="accueil">
+        
+        <!-- Form to select the sensor to remove-->
     	<form action="./suppression.php" method="post">
     		<fieldset>
     			<input type="hidden" name="table" value="Capteur">
     			<input type="hidden" name="champ" value="nom_capteur">
     			<?php
-			
+					
+					//Include database connection file
 					include("../Script/mysql.php");
 					
+					//Retrieve the sensors in the base
 					$requete_capteur="SELECT nom_capteur, type_capteur, nom_salle FROM `Capteur`";
 					
 					$resultat=mysqli_query($id_bd, $requete_capteur);
 					
+					//Build options in the form
 					while($ligne=mysqli_fetch_array($resultat)){
 						
 						extract($ligne);
@@ -31,7 +36,7 @@
         				echo "<input type=\"radio\" id=".$nom_capteur." name=\"element\" value=".$nom_capteur." />";
         				echo "</br>";
 					}
-			
+					mysqli_close($id_bd);
 				?>
         	</fieldset>
         		<input type="submit" value="Suivant"/>

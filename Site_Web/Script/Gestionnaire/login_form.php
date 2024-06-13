@@ -1,5 +1,5 @@
 <?php
-	// Démarrage de la session
+	// Start session
 	session_start();
 ?>
 
@@ -8,11 +8,12 @@
 <head>
   <title>Formulaire connexion gestionnaire</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <meta name="description" content="SAE 23">
   <link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen">
 </head>
 
+	<!-- Nav bar -->
 	<nav>
 		<ul class="Liens">
 			<li><a href="../index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
@@ -28,17 +29,18 @@
 
 	<main>
         <section class="login-container">
-
             <h2>Connexion gestionnaire</h2>
+            
+            <!-- Form for identification in the management section -->
             <form action="login.php" method="post" enctype="multipart/form-data">
-
-                <label for="login">Nom d'utilisateur</label>
+                <label for="login">Nom d utilisateur</label>
                 <input type="text" name="login" id="login" placeholder="Nom d'utilisateur" required>
                 <label for="mdp">Mot de passe</label>
                 <input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required>
-
                 <button type="submit">Connexion</button>
             </form>
+            
+            
         </section>
 	</main>
 
@@ -53,10 +55,10 @@
 						<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
 					</a>
 		</aside>
-	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+		<!-- Footer block for visiting the Blagnac IUT website, and also for sending me an e-mail!-->
 		<footer>
 			<ul>
-				<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
+				<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l IUT de Blagnac</strong></a></li>
 				<li>Département Réseaux et Télécommunications</li>
 				<li>BUT1</li>
 				<li>2024</li>

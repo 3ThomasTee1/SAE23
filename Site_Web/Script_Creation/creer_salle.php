@@ -10,11 +10,11 @@
 	<body>
     	<h1>Choisir la Salle</h1>
     	<?php
-        	// Récupérer le bâtiment sélectionné
+        	//Retrieve the selected building
         	$batiment=$_POST['batiment'];
  			echo "Vous avez choisi le batiment $batiment";
 	
-        	// Définir les salles en fonction du bâtiment sélectionné
+        	// Define rooms according to the building selected
         	$salles=["B" => ["B105", "B203"],"E" => ["E105", "E208"]];
     	?>
 	    <section class="accueil">

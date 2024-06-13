@@ -1,12 +1,12 @@
 <?php
-	// Démarrage de la session
+	//Session start
 	session_start();
 	include ('../mysql.php');
 
-	//Récupération du batiment du formulaire précédent
+	//Recovering the building from the previous form
 	$batiment=$_POST['batiment'];
 
-	// Récupération des bâtiments présents dans la base de données
+	//Retrieve rooms of the building from the database
 	$sql = "SELECT nom_salle FROM Salle WHERE id_batiment = '$batiment'";
 	$result = mysqli_query($id_bd, $sql);
 
@@ -25,7 +25,7 @@
   <link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen">
 </head>
 <body>
-<!-- Barre de navigation !-->
+<!-- Nav bar-->
 	<nav>
 		<ul class="Liens">
 			<li><a href="../index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
@@ -39,15 +39,20 @@
 		<h2>Vous voilà dans la page Batiment <?php $id_batiment ?></h2>
 	</section>
 	<section class="form-container">
+	
+	<!-- Creation of a form for selecting rooms-->
 	<form action="../Batiment/choix_plage.php" method="post">
 		<h2>Formulaire 2</h2>
 			<label for="salle">Veuillez choisir la salle qui vous intéresse : </label>
 				<select name="salle" id="salle">
 					<?php 
+					
+						//Creation of options to select rooms
 						while ($ligne = mysqli_fetch_assoc($result)){
 						 	extract($ligne);
 							echo "<option value=".$nom_salle.">".$nom_salle."</option>";
 						}
+						
                 	?>
 				</select>
 			<p>
@@ -55,8 +60,10 @@
 				<input class="bouton" type="reset" value="Annuler" />
 			</p>
 	</form>
+	
+	
 	</section>
-	<!-- Bloc aside permettant da valider les pages web!-->
+	<!-- Aside block for validating web pages!-->
 	<aside id="last">
 		<hr>
 			<p><em> Validation de la page HTML5 - CSS3 </em></p>
@@ -67,10 +74,10 @@
 					<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
 				</a>
 	</aside>
-	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+	<!-- Footer block for visiting the Blagnac IUT website, and also for sending me an e-mail!-->
 	<footer>
 		<ul>
-			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
+			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l IUT de Blagnac</strong></a></li>
 			<li>Département Réseaux et Télécommunications</li>
 			<li>BUT1</li>
 			<li>2024</li>
@@ -81,7 +88,7 @@
 </html>
 
 <?php
-// Libération du résultat et fermeture de la connexion
-mysqli_free_result($result);
-mysqli_close($id_bd);
+	// Release the result and close the connection
+	mysqli_free_result($result);
+	mysqli_close($id_bd);
 ?>

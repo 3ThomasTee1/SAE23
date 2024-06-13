@@ -26,10 +26,10 @@
     	
     			<?php
 			
-					//Inclusion des fichiers contenant les accès à la base de données
+					//Inclusion of files containing database accesses
 					include('../Script/mysql.php');
 					
-					//Récupération des valeurs des divers formulaires
+					//Recovering values from previous forms
 					$batiment=$_POST['batiment'];
 					$nom_batiment=$_POST['nom_batiment'];
 					$login=$_POST['login'];
@@ -41,49 +41,49 @@
 					$capacite_salle=$_POST['capacite_salle'];
 					
 						
-					//Préparer les requêtes SQL
+					//Preparing SQL queries
 					$requete_batiment = "INSERT INTO `sae23`.`Batiment` (`id_batiment`, `nom`, `login`, `mdp`) 
                      VALUES ('$batiment', '$nom_batiment', '$login', '$mdp')
                      ON DUPLICATE KEY UPDATE nom='$nom_batiment', login='$login', mdp='$mdp'";
 
-					// Requête pour Salle
+					// Room request
 					$requete_salle = "INSERT INTO `sae23`.`Salle` (`nom_salle`, `type_salle`, `capacite`, `id_batiment`) 
 					VALUES ('$salle', '$type_salle', '$capacite_salle', '$batiment')
 					ON DUPLICATE KEY UPDATE type_salle='$type_salle', capacite='$capacite_salle', id_batiment='$batiment'";
 
 
-					// Requête pour Capteur
+					// Request for Sensor
 					$requete_capteur = "INSERT INTO `sae23`.`Capteur` (`nom_capteur`, `type_capteur`, `unite`, `nom_salle`) 
 					VALUES ('$capteur', 'luminosité', 'lux', '$salle')
 					ON DUPLICATE KEY UPDATE type_capteur='luminosité', unite='lux'";						
 
 					
-					// Exécuter les requêtes SQL
+					// Execute SQL queries
 					if (mysqli_query($id_bd, $requete_batiment)) {
-						echo "Bâtiment ajouté avec succès.<br>";
+						echo "Bâtiment $nom_batiment ajouté avec succès.<br>";
 					} else {
-						echo "Erreur lors de l'ajout du bâtiment : " . mysqli_error($id_bd) . "<br>";
+						echo "Erreur lors de l'ajout du bâtiment $nom_batiment : " . mysqli_error($id_bd) . "<br>";
 					}
 					
 					if (mysqli_query($id_bd, $requete_salle)) {
-						echo "Salle ajoutée avec succès.<br>";
+						echo "Salle $salle ajoutée avec succès.<br>";
 					} else {
-						echo "Erreur lors de l'ajout de la salle : " . mysqli_error($id_bd) . "<br>";
+						echo "Erreur lors de l'ajout de la salle $salle : " . mysqli_error($id_bd) . "<br>";
 					}
 					
 					if (mysqli_query($id_bd, $requete_capteur)) {
-						echo "Capteur ajouté avec succès.<br>";
+						echo "Capteur $capteur ajouté avec succès.<br>";
 					} else {
-						echo "Erreur lors de l'ajout du capteur : " . mysqli_error($id_bd) . "<br>";
+						echo "Erreur lors de l'ajout du capteur $capteur : " . mysqli_error($id_bd) . "<br>";
 					}
 					
-					// Fermer la connexion à la base de données
+					// Close the database connection
 					mysqli_close($id_bd);
 			
 				?>		
 	</section>
 
-	<!-- Bloc aside permettant da valider les pages web!-->
+	<!-- Aside block for validating web pages!-->
 	<aside id="last">
 		<hr>
 			<p><em> Validation de la page HTML5 - CSS3 </em></p>
@@ -94,7 +94,7 @@
 					<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
 				</a>
 	</aside>
-	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+	<!-- Footer block allowing you to visit the Blagnac IUT website, and also allowing you to send me an email!-->
 	<footer>
 		<ul>
 			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>

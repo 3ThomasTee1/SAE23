@@ -1,6 +1,8 @@
 <?php
-	// Démarrage de la session
+	// Session start
 	session_start();
+	
+	//Inclusion of database connection file
 	include('../mysql.php');
 
 ?>
@@ -10,12 +12,12 @@
 <head>
   <title>Gestion administrateur bâtiment</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Pour bien gérer le RWD -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SAE 23">
 	<link rel="stylesheet" type="text/css" href="../../Styles/style_adaptatif.css" media="screen" />
 </head>
 <body>
-<!-- Barre de navigation !-->
+	<!-- Navigation bar -->
 	<nav>
 		<ul class="Liens">
 			<li><a href="../index.html"><i class="fa-solid fa-house"></i> Accueil</a></li>
@@ -33,19 +35,23 @@
 	</section>
 	<!-- Section des formulaires centraux -->
 	   <section class="form-container">
+	   
+	   <!-- Construction of the building selection form -->
         <form action="../Gestionnaire/GestionGestionnaire.php" method="post">
             <h2>Formulaire 1</h2>
             <label for="batiment">Veuillez choisir le bâtiment qui vous intéresse : </label>
             <select name="batiment" id="batiment">
                 <?php 
 					
-					// Récupération des bâtiments présents dans la base de données
+					//query to retrieve buildings in the database
 					$sql = "SELECT id_batiment, nom FROM Batiment";
 					$resultat = mysqli_query($id_bd, $sql);
 
 					if (!$resultat) {
 						die("Erreur lors de la récupération des données : " . mysqli_error($id_bd));
 					}
+					
+					//Construction of selectable fields in the form
 					while ($ligne= mysqli_fetch_assoc($resultat)){
 						extract($ligne);						
 			
@@ -58,8 +64,10 @@
                 <input class="bouton" type="reset" value="Annuler" />
             </p>
         </form>
+        
+        
       </section>
-	<!-- Bloc aside permettant da valider les pages web!-->
+	<!-- Aside block to validate web pages!-->
 	<aside id="last">
 		<hr>
 			<p><em> Validation de la page HTML5 - CSS3 </em></p>
@@ -70,10 +78,10 @@
 					<img class= "image-responsive" src="Images/css-validator-badge-blue.PNG" alt="CSS Valide !">
 				</a>
 	</aside>
-	<!-- Bloc Footer permettant de visiter le site de l'IUT de Blagnac, et aussi permettant de m'envoyer un mail!-->
+	<!-- Footer block to visit the IUT de Blagnac website, and also to send me an e-mail!-->
 	<footer>
 		<ul>
-			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l'IUT de Blagnac</strong></a></li>
+			<li><a href="https://www.iut-blagnac.fr/" target="_blank"><strong>l IUT de Blagnac</strong></a></li>
 			<li>Département Réseaux et Télécommunications</li>
 			<li>BUT1</li>
 			<li>2024</li>
@@ -83,8 +91,8 @@
 </html>
 
 <?php
-// Libération du résultat et fermeture de la connexion
-mysqli_free_result($result);
-mysqli_close($id_bd);
+	//Release result and close connection
+	mysqli_free_result($resultat);
+	mysqli_close($id_bd);
 ?>
 		
