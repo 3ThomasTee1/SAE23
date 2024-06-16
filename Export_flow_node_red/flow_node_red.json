@@ -1,0 +1,478 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3cc11d24.ff01a2",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "WARNING: please check you have started this container with a volume that is mounted to /data\\n otherwise any flow changes are lost when you redeploy or upgrade the container\\n (e.g. upgrade to a more recent node-red docker image).\\n  If you are using named volumes you can ignore this warning.\\n Double click or see info side panel to learn how to start Node-RED in Docker to save your work",
+        "info": "\nTo start docker with a bind mount volume (-v option), for example:\n\n```\ndocker run -it -p 1880:1880 -v /home/user/node_red_data:/data --name mynodered nodered/node-red\n```\n\nwhere `/home/user/node_red_data` is a directory on your host machine where you want to store your flows.\n\nIf you do not do this then you can experiment and redploy flows, but if you restart or upgrade the container the flows will be disconnected and lost. \n\nThey will still exist in a hidden data volume, which can be recovered using standard docker techniques, but that is much more complex than just starting with a named volume as described above.",
+        "x": 350,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "19516b758db9efa1",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "AM107/by-room/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "a44562dd36af1f99",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1080,
+        "wires": [
+            [
+                "dcd0e72e2f824b2b"
+            ]
+        ]
+    },
+    {
+        "id": "cd88c39f6676ec1e",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "Luminosité",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "dcd0e72e2f824b2b",
+        "type": "json",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 350,
+        "y": 1080,
+        "wires": [
+            [
+                "ad86c26b5b5922c6"
+            ]
+        ]
+    },
+    {
+        "id": "2006bd5d375c2394",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 2",
+        "func": "//Extraire la valeur d'illumination du premier élément du tableau\nlet data = msg.payload[0];\nlet illumination = data.illumination;\n\n//Envoyer la valeur d'illumination dans le payload du message\nmsg.payload = illumination;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 940,
+        "wires": [
+            [
+                "cd88c39f6676ec1e",
+                "f74fda565603d6cb",
+                "844bf3d64bd682f2"
+            ]
+        ]
+    },
+    {
+        "id": "f74fda565603d6cb",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "bd09474467b2934e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luminosité E105",
+        "label": "lumens",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "9e6f646f51bc4fcb",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 3",
+        "func": "//Extraire la valeur d'illumination du premier élément du tableau\nlet data = msg.payload[0];\nlet illumination = data.illumination;\n\n//Envoyer la valeur d'illumination dans le payload du message\nmsg.payload = illumination;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1160,
+        "wires": [
+            [
+                "729722fd8e93229d",
+                "58ecf9c89a0c630d",
+                "cd88c39f6676ec1e"
+            ]
+        ]
+    },
+    {
+        "id": "729722fd8e93229d",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "bd09474467b2934e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luminosité E208",
+        "label": "lumens",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "ad86c26b5b5922c6",
+        "type": "switch",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "AM107/by-room/E105/data",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "AM107/by-room/E208/data",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "AM107/by-room/B105/data",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "AM107/by-room/B203/data",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 540,
+        "y": 1120,
+        "wires": [
+            [
+                "2006bd5d375c2394"
+            ],
+            [
+                "9e6f646f51bc4fcb"
+            ],
+            [
+                "e5b49269d533165d"
+            ],
+            [
+                "ae1a963112e977fa"
+            ]
+        ]
+    },
+    {
+        "id": "844bf3d64bd682f2",
+        "type": "influxdb out",
+        "z": "f6f2187d.f17ca8",
+        "influxdb": "9f150715bf761c9a",
+        "name": "",
+        "measurement": "illumination,building=RT,room=E105",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1420,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "58ecf9c89a0c630d",
+        "type": "influxdb out",
+        "z": "f6f2187d.f17ca8",
+        "influxdb": "9f150715bf761c9a",
+        "name": "",
+        "measurement": "illumination,building=RT,room=E208",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1420,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "e5b49269d533165d",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 4",
+        "func": "//Extraire la valeur d'illumination du premier élément du tableau\nlet data = msg.payload[0];\nlet illumination = data.illumination;\n\n//Envoyer la valeur d'illumination dans le payload du message\nmsg.payload = illumination;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1320,
+        "wires": [
+            [
+                "cd88c39f6676ec1e",
+                "1a95678ca6f0cc4c",
+                "36c392b90df61fe5"
+            ]
+        ]
+    },
+    {
+        "id": "ae1a963112e977fa",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "function 5",
+        "func": "//Extraire la valeur d'illumination du premier élément du tableau\nlet data = msg.payload[0];\nlet illumination = data.illumination;\n\n//Envoyer la valeur d'illumination dans le payload du message\nmsg.payload = illumination;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1460,
+        "wires": [
+            [
+                "cd88c39f6676ec1e",
+                "a9465b4963e25df6",
+                "f2f044aea3912794"
+            ]
+        ]
+    },
+    {
+        "id": "1a95678ca6f0cc4c",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "b60789bc6416487a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luminosité B105",
+        "label": "lumens",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "a9465b4963e25df6",
+        "type": "ui_gauge",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "group": "b60789bc6416487a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luminosité B203",
+        "label": "lumens",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "36c392b90df61fe5",
+        "type": "influxdb out",
+        "z": "f6f2187d.f17ca8",
+        "influxdb": "9f150715bf761c9a",
+        "name": "",
+        "measurement": "illumination,building=INFO,room=B105",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1430,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "f2f044aea3912794",
+        "type": "influxdb out",
+        "z": "f6f2187d.f17ca8",
+        "influxdb": "9f150715bf761c9a",
+        "name": "",
+        "measurement": "illumination,building=INFO,room=B203",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1430,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "a44562dd36af1f99",
+        "type": "mqtt-broker",
+        "name": "mosquittoRT",
+        "broker": "mqtt.iut-blagnac.fr",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "bd09474467b2934e",
+        "type": "ui_group",
+        "name": "Capteurs Luminosité",
+        "tab": "95e207d73cfaedcc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9f150715bf761c9a",
+        "type": "influxdb",
+        "hostname": "192.168.111.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "capteurs",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "b60789bc6416487a",
+        "type": "ui_group",
+        "name": "Capteurs Luminosité",
+        "tab": "ec408af85c2879d0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "95e207d73cfaedcc",
+        "type": "ui_tab",
+        "name": "Bâtiment RT",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ec408af85c2879d0",
+        "type": "ui_tab",
+        "name": "Bâtiment INFO",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
